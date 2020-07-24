@@ -14,6 +14,9 @@ func main() {
 func isValidSubsequence2(subsequence, mainArray []int) (returnedValue bool) {
 	subsequenceIndex := 0
 	for _, value := range mainArray {
+		if subsequenceIndex == len(subsequence) {
+			break
+		}
 		if subsequence[subsequenceIndex] == value {
 			subsequenceIndex += 1
 		}
