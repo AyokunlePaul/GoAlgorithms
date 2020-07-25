@@ -1,35 +1,35 @@
 package models
 
-type Node struct {
+type graphNode struct {
 	Name     string
-	Children []*Node
+	Children []*graphNode
 }
 
-func (node *Node) addChildren(nodes ...*Node) {
+func (node *graphNode) addChildren(nodes ...*graphNode) {
 	for _, childNode := range nodes {
 		node.Children = append(node.Children, childNode)
 	}
 }
 
-func (node *Node) DepthFirstSearch(array *[]string) {
+func (node *graphNode) DepthFirstSearch(array *[]string) {
 	*array = append(*array, node.Name)
 	for _, children := range node.Children {
 		children.DepthFirstSearch(array)
 	}
 }
 
-func CreateGraph() (node *Node) {
-	node = &Node{Name: "A"}
-	nodeB := &Node{Name: "B"}
-	nodeC := &Node{Name: "C"}
-	nodeD := &Node{Name: "D"}
-	nodeE := &Node{Name: "E"}
-	nodeF := &Node{Name: "F"}
-	nodeG := &Node{Name: "G"}
-	nodeH := &Node{Name: "H"}
-	nodeI := &Node{Name: "I"}
-	nodeJ := &Node{Name: "J"}
-	nodeK := &Node{Name: "K"}
+func CreateGraph() (node *graphNode) {
+	node = &graphNode{Name: "A"}
+	nodeB := &graphNode{Name: "B"}
+	nodeC := &graphNode{Name: "C"}
+	nodeD := &graphNode{Name: "D"}
+	nodeE := &graphNode{Name: "E"}
+	nodeF := &graphNode{Name: "F"}
+	nodeG := &graphNode{Name: "G"}
+	nodeH := &graphNode{Name: "H"}
+	nodeI := &graphNode{Name: "I"}
+	nodeJ := &graphNode{Name: "J"}
+	nodeK := &graphNode{Name: "K"}
 	nodeF.addChildren(nodeI, nodeJ)
 	nodeG.addChildren(nodeK)
 	nodeB.addChildren(nodeE, nodeF)
