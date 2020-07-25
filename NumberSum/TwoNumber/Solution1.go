@@ -13,7 +13,7 @@ func main() {
 			fmt.Printf("%d, %d\n", value, subtractedValue)
 			return
 		} else {
-			hashTable[value ] = true
+			hashTable[value] = true
 		}
 	}
 }
